@@ -2,42 +2,201 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="TogetherTech - Premium Web Development & Software Solutions for Local Entrepreneurs"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>TogetherTech | Digital Excellence</title>
+    <!-- ✅ Primary SEO -->
+    <title>TogetherTech | Affordable Web Development & Software in Chennai, Madurai</title>
+    <meta name="description" content="TogetherTech — Affordable freelance web development, app development, software and SEO services in Chennai, Madurai and Tamil Nadu. Quality tech at prices that make sense. Hire a trusted freelancer near you." />
+    <meta name="keywords" content="affordable web development, freelancer near me, freelancer in Chennai, freelancer in Madurai, web developer Chennai, web developer Madurai, software developer Tamil Nadu, affordable website design India, app development Chennai, SEO services Madurai, freelance web developer India, website design Chennai, software company Madurai, TogetherTech, web development Tamil Nadu, cheap web development India, hire freelancer Chennai, hire freelancer Madurai" />
+    <meta name="author" content="TogetherTech" />
+    <meta name="robots" content="index, follow" />
+    <meta name="google-site-verification" content="XjXVEbxFuPl93BfXB0VVZQ0mT2CHzCqa74c1bnCPFY8" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="Chennai, Madurai, Tamil Nadu" />
+    <meta name="geo.position" content="13.0827;80.2707" />
+    <meta name="ICBM" content="13.0827, 80.2707" />
+
+    <!-- ✅ Open Graph (WhatsApp, Facebook, LinkedIn preview) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.togethertechgroups.in/" />
+    <meta property="og:title" content="TogetherTech | Affordable Web Development in Chennai & Madurai" />
+    <meta property="og:description" content="We build websites, apps, software and handle SEO for businesses worldwide. Affordable freelance team based in Tamil Nadu, India." />
+    <meta property="og:image" content="https://www.togethertechgroups.in/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="TogetherTech" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.togethertechgroups.in/" />
+    <meta name="twitter:title" content="TogetherTech | Affordable Web Development in Chennai & Madurai" />
+    <meta name="twitter:description" content="We build websites, apps, software and handle SEO for businesses worldwide. Affordable freelance team based in Tamil Nadu, India." />
+    <meta name="twitter:image" content="https://www.togethertechgroups.in/og-image.png" />
+
+    <!-- ✅ Canonical URL -->
+    <link rel="canonical" href="https://www.togethertechgroups.in/" />
+
+    <!-- ✅ Favicon & Icons -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- ✅ Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ✅ Local Business Schema (tells Google exactly who you are) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "TogetherTech",
+      "description": "Affordable freelance web development, app development, software and SEO services in Chennai, Madurai and Tamil Nadu. Quality tech at prices that make sense.",
+      "url": "https://www.togethertechgroups.in",
+      "email": "Togethertechofficial@gmail.com",
+      "logo": "https://www.togethertechgroups.in/logo192.png",
+      "image": "https://www.togethertechgroups.in/og-image.png",
+      "priceRange": "₹₹",
+      "currenciesAccepted": "INR, USD, GBP",
+      "paymentAccepted": "Bank Transfer, UPI, PayPal",
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Chennai"
+        },
+        {
+          "@type": "City",
+          "name": "Madurai"
+        },
+        {
+          "@type": "City",
+          "name": "Coimbatore"
+        },
+        {
+          "@type": "State",
+          "name": "Tamil Nadu"
+        },
+        {
+          "@type": "Country",
+          "name": "India"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "United Kingdom"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Design & Development",
+              "description": "Custom website design and development for businesses in Chennai and Madurai"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile App Development",
+              "description": "iOS and Android app development for businesses in Tamil Nadu"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Software Development",
+              "description": "Custom software development for businesses across India"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "SEO Services",
+              "description": "Search engine optimization for businesses in Chennai and Madurai"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "E-commerce Development",
+              "description": "Shopify and WooCommerce development for online stores"
+            }
+          }
+        ]
+      },
+      "sameAs": [
+        "https://www.instagram.com/togethertechofficial?igsh=MTR2NnlsZWhiOTQyNg==",
+        "https://www.linkedin.com/company/togethertech" 
+      ]
+    }
+    </script>
+
+    <!-- ✅ FAQ Schema (ranks for question-based searches) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does a website cost in Chennai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At TogetherTech, a basic website starts from ₹15,000 and a full e-commerce website starts from ₹40,000. We offer the most affordable web development services in Chennai and Madurai."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there an affordable web developer near me in Madurai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! TogetherTech is a freelance web development team based in Tamil Nadu serving clients in Madurai, Chennai and across India. We offer affordable prices with professional quality."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I hire a freelancer in Chennai for web development?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. TogetherTech is a freelance web development team in Chennai, Tamil Nadu. We build websites, apps, software and provide SEO services at affordable prices. Contact us at Togethertechofficial@gmail.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What services does TogetherTech offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "TogetherTech offers website design and development, mobile app development, custom software development, SEO services and e-commerce development for businesses in Chennai, Madurai and worldwide."
+          }
+        }
+      ]
+    }
+    </script>
+
   </head>
   <body>
+    <!-- ✅ Header with Logo -->
+    <header style="padding: 20px; text-align: center; background-color: #ffffff; border-bottom: 1px solid #eaeaea;">
+      <img src="%PUBLIC_URL%/images/logo.png" alt="TogetherTech Logo" style="max-height: 80px; width: auto;" />
+    </header>
+
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->         
   </body>
 </html>
