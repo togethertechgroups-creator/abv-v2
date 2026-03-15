@@ -1,0 +1,38 @@
+.whatsapp-float-btn {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.whatsapp-icon {
+  width: 35px;
+  height: 35px;
+}
+
+/* For mobile positioning */
+@media screen and (max-width: 767px) {
+  .whatsapp-float-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
+  }
+  .whatsapp-icon {
+    width: 28px;
+    height: 28px;
+  }
+}

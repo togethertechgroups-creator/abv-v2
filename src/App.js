@@ -5,6 +5,7 @@ import './styles/global.css';
 import { AnimatePresence } from 'framer-motion';
 import TogetherTechLoader from './components/common/TogetherTechLoader';
 import InteractiveBg from './components/common/InteractiveBg';
+import WhatsAppButton from './components/common/WhatsAppButton/WhatsAppButton';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,6 +33,7 @@ function App() {
         behind the loader until the split animation happens.
       */}
       <AppRouter />
+      <WhatsAppButton />
     </>
   );
 }
