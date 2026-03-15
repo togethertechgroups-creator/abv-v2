@@ -1,0 +1,37 @@
+.pricing-toggle-section {
+  background-color: var(--bg-light);
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+}
+
+.toggle-wrapper {
+  display: inline-flex;
+  background-color: white;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--border-color);
+  gap: 0;
+  padding: 4px;
+}
+
+.toggle-btn {
+  padding: 12px 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  border-radius: calc(var(--border-radius) - 2px);
+}
+
+.toggle-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .toggle-btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

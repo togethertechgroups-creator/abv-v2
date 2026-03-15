@@ -1,0 +1,215 @@
+.hero-section {
+  padding: 120px 0 80px;
+  background: #fff; /* Keeping it clean white as per image */
+  overflow: visible; /* Allow floating elements to not be clipped */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  padding: 0 24px;
+  align-items: center;
+}
+
+/* --- Left Column: Visuals --- */
+.hero-visual-left {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  perspective: 1000px;
+}
+.request{
+  background-color: #FAB116 !important;
+}
+.portrait-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 480px; /* Increased for portrait group image */
+  z-index: 10;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+.portrait-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+}
+
+/* Floating Badges */
+.float-badge {
+  position: absolute;
+  background: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 20;
+  min-width: 160px;
+}
+
+.badge-clocking {
+  top: 15%;
+  right: -20px;
+}
+
+.badge-attendance {
+  bottom: 15%;
+  left: -20px;
+}
+
+.icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box.blue { background-color: #1E293B; }
+.icon-box.dark { background-color: #0F172A; }
+
+.badge-text {
+  font-weight: 700;
+  color: #0F172A;
+  font-size: 16px;
+}
+
+/* --- Right Column: Content --- */
+.hero-content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.text-dark { color: #0F172A; }
+.text-orange { color: #F59E0B; }
+
+.hero-subtiitle {
+  font-size: 18px;
+  color: #64748B;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 90%;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.btn-primary {
+  background-color: #F59E0B; /* Match the orange in image */
+  color: #0F172A;
+  font-weight: 700;
+  padding: 16px 32px;
+  border-radius: 50px; /* Rounded pill shape */
+  border: none;
+  font-size: 1rem;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #0F172A;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  padding: 0;
+}
+
+.btn-link:hover { color: #F59E0B; }
+
+/* Features List (Checkmarks) */
+.hero-features {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #334155;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.check-icon {
+  color: #1E293B; /* Dark icon color */
+  fill: transparent;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 40px;
+  }
+
+  .hero-visual-left {
+    order: -1; /* Keep visual on top for mobile */
+    margin-bottom: 60px;
+  }
+  
+  .badge-clocking { right: -10px; }
+  .badge-attendance { right: -10px; }
+
+  .hero-subtitle { margin: 0 auto 30px; }
+  .hero-actions, .hero-features { justify-content: center; }
+}
+/* --- EXISTING CSS REMAINS THE SAME --- */
+
+/* ... (Keep your existing .hero-tittle styles) ... */
+
+/* --- NEW ANIMATION HELPERS --- */
+
+/* This creates the "invisible box" that the text slides out of */
+.line-mask {
+  overflow: hidden; /* Crucial: hides the text when it's "down" */
+  display: block;
+  line-height: 1.15; /* Match your title line-height */
+  margin-bottom: 2px; /* Slight gap adjustment if needed */
+}
+
+/* Ensures the span takes up the full width for the transform to work */
+.block {
+  display: block;
+}
+
+/* Ensure the title container aligns left properly */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

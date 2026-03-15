@@ -1,0 +1,198 @@
+.mvv-section {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.mvv-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.mvv-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* --- CARD BASE --- */
+.mvv-card {
+  position: relative;
+  height: 400px; /* Fixed height for consistent grid */
+  border-radius: 20px;
+  overflow: hidden; /* Essential for clip-path */
+  cursor: pointer;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.mvv-card:hover {
+  transform: translateY(-10px);
+}
+
+/* --- BACKGROUNDS --- */
+.mvv-bg-blue {
+  position: absolute;
+  inset: 0;
+  background-color: #334155; /* Dark Slate Blue from image 1 */
+  background-image: linear-gradient(135deg, #334155 0%, #1E293B 100%);
+  z-index: 1;
+}
+
+.mvv-bg-orange {
+  position: absolute;
+  inset: 0;
+  background-color: #F59E0B; /* Orange from image 2 */
+  background-image: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  z-index: 2;
+}
+
+/* --- CONTENT LAYER --- */
+.mvv-content {
+  position: relative;
+  z-index: 3;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Icon */
+.mvv-icon-wrapper {
+  color: white; /* Default White icon */
+  margin-bottom: 20px;
+  opacity: 0.8; /* Subtle transparency like background graphic */
+  transition: all 0.5s ease;
+}
+
+/* Title */
+.mvv-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 4;
+}
+
+/* Text (Hidden by default) */
+.mvv-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #0F172A; /* Dark text on Orange */
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+/* --- INDICATOR (Line + Dot) --- */
+.mvv-indicator-wrapper {
+  position: absolute;
+  bottom: 50px;
+  display: flex;
+  align-items: center;
+  width: 120px; /* Constrain width to keep dot movement controlled */
+  justify-content: center;
+}
+
+.mvv-line {
+  height: 4px;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.mvv-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  left: 0; /* Start at left of line */
+}
+
+/* --- Responsive --- */
+@media (max-width: 968px) {
+  .mvv-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .mvv-card {
+    height: auto;
+    min-height: 350px;
+  }
+}
+/* ... Keep your existing container styles ... */
+
+.mvv-card {
+  position: relative;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+  background-color: #0F172A; /* Fallback color */
+}
+
+/* --- 1. IMAGE LAYER --- */
+.mvv-bg-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* At the bottom */
+}
+
+.mvv-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6; /* Dim the image slightly so it's not too busy */
+  filter: grayscale(20%); /* Optional: Clean look */
+}
+
+/* --- 2. BLUE OVERLAY --- */
+.mvv-bg-blue {
+  position: absolute;
+  inset: 0;
+  /* Use Multiply or Overlay to tint the image blue */
+  background-color: rgba(30, 41, 59, 0.92); /* High opacity blue */
+  z-index: 1;
+  /* This ensures the image shows through but is heavily tinted blue */
+  mix-blend-mode: multiply; 
+}
+
+/* --- 3. ORANGE REVEAL --- */
+.mvv-bg-orange {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(245, 158, 11, 0.95); /* Orange with slight transparency */
+  z-index: 2;
+}
+
+/* --- CONTENT --- */
+.mvv-content {
+  position: relative;
+  z-index: 3; /* On top of everything */
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* ... Keep the rest of your text/icon styles ... */

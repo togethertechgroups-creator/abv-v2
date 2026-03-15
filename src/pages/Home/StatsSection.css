@@ -1,0 +1,93 @@
+.stats-section {
+  padding: 80px 0;
+  background-color: white;
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 Columns on Desktop */
+  gap: 40px;
+  align-items: start;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between Number and Text block */
+}
+
+/* Number Styling */
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0F172A; /* Dark Navy */
+  margin: 0;
+  line-height: 1;
+  font-feature-settings: "tnum"; /* Ensures numbers don't jump width while animating */
+}
+
+/* Flex container for Bar + Text */
+.stat-content {
+  display: flex;
+  align-items: flex-start; /* Align to top of text */
+  gap: 15px; /* Distance between orange bar and text */
+}
+
+/* The Vertical Orange Bar */
+.vertical-bar {
+  width: 4px;
+  height: 45px; /* Fixed height as shown in image */
+  background-color: #F59E0B; /* Orange */
+  border-radius: 2px;
+  flex-shrink: 0; /* Prevents bar from shrinking if text is long */
+}
+
+/* Label Styling */
+.stat-label {
+  color: #334155; /* Slate Gray */
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+  margin: 0;
+  max-width: 200px; /* Forces text wrapping like in the image */
+}
+
+/* --- Responsive Breakpoints --- */
+
+/* Tablet: 2 Columns */
+@media (max-width: 1024px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px 40px; /* More vertical gap */
+  }
+}
+
+/* Mobile: 1 Column */
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .stat-item {
+    align-items: center; /* Center everything on mobile */
+    text-align: center;
+  }
+
+  .stat-content {
+    justify-content: center;
+  }
+  
+  /* On mobile, maybe hide the bar or put it on top? 
+     Let's keep it but adjust height if needed */
+  .vertical-bar {
+    height: 100%; /* Stretch to text height on mobile */
+    min-height: 40px;
+  }
+}

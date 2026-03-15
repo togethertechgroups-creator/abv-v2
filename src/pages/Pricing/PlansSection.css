@@ -1,0 +1,91 @@
+.plans {
+  background-color: white;
+  padding: var(--spacing-xl) 0;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.plan-card {
+  background-color: var(--bg-light);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-lg);
+  position: relative;
+  transition: var(--transition);
+}
+
+.plan-card.highlighted {
+  background-color: white;
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(33, 150, 243, 0.2);
+  transform: scale(1.05);
+}
+
+.plan-card h3 {
+  color: var(--primary-color);
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.plan-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin: var(--spacing-sm) 0;
+}
+
+.period {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.plan-employees {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.pepm {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--spacing-lg) 0;
+}
+
+.features-list li {
+  padding: 10px 0;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+  padding-left: 25px;
+}
+
+.features-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+.plan-card .btn-primary {
+  width: 100%;
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .plan-card.highlighted {
+    transform: scale(1);
+  }
+}

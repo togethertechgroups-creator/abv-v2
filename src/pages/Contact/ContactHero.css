@@ -1,0 +1,112 @@
+.contact-hero-section {
+  position: relative;
+  width: 100%;
+  
+  /* Adjust this height to control how "small" the section is */
+  height: 500px; 
+  min-height: 350px;
+  
+  /* BACKGROUND SETTINGS */
+  background-size: cover;      /* Fills the width */
+  
+  /* CRITICAL CHANGE: Pins image to top. Cropping only happens at the bottom. */
+  background-position: top center; 
+  
+  background-repeat: no-repeat;
+  display: flex;
+  margin-top: 70px;
+  align-items: center;
+  justify-content: center;
+  background-color: #0F172A;
+}
+
+/* Dark Blue Tint Overlay */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* --- CHANGE 3: Fixed invalid color syntax --- */
+  background: rgba(0, 0, 0, 0.6); /* 60% opacity black overlay */
+  z-index: 1;
+}
+
+.herooo-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 24px;
+  text-align: center;
+}
+
+/* Typography */
+.hero-title {
+  /* Reduced font size slightly to match the smaller section */
+  font-size: 3.5rem; 
+  font-weight: 800;
+  /* color: #ffffff;breadcrumb Changed to white to contrast with the dark overlay */
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+/* .breadcrumb {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #F59E0B; 
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; 
+} */
+
+.separator {
+  color: #F59E0B;
+  font-weight: 800;
+}
+
+.active {
+  color: #cbd5e1; /* Light gray for the active text */
+}
+
+/* Decoration lines (if you are keeping the dot/line from your variants) */
+.hero-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #F59E0B;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.hero-line {
+  height: 7px;
+  background-color: #F59E0B;
+  /* width is handled by framer-motion */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .contact-hero-section {
+    /* Even smaller on mobile */
+    height: 40vh;
+    min-height: 300px;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .breadcrumb {
+    font-size: 1rem;
+  }
+}

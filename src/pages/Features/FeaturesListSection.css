@@ -1,0 +1,195 @@
+.features-flow-section {
+  padding: 100px 0;
+  background-color: white;
+}
+
+.flow-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* --- Header --- */
+.flow-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 80px;
+}
+
+.flow-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0F172A; /* Dark Navy */
+  margin-bottom: 20px;
+}
+
+.flow-subtitle {
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* --- Flow Layout Structure --- */
+.flow-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 80px; /* Space between the two main rows */
+}
+
+.flow-row {
+  display: flex;
+  align-items: flex-end; /* Align bottoms of stack and group */
+  gap: 40px;
+}
+
+/* 1. The Vertical Stacks (Single Cards) */
+.col-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 30%; /* Narrower column for stacked cards */
+}
+
+/* 2. The Horizontal Groups (Boxed with Bar) */
+.col-group {
+  width: 70%; /* Wider column for the group box */
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- The Orange Bar Animation --- */
+.group-bar-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Space between bar and box */
+  height: 20px;
+  width: 100%;
+}
+
+.orange-bar {
+  height: 12px;
+  background-color: #F59E0B;
+  border-radius: 20px;
+}
+
+.navy-dot {
+  width: 24px;
+  height: 24px;
+  background-color: #0F172A;
+  border-radius: 50%;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+/* Right Aligned Bar (Row 1) */
+.align-right {
+  justify-content: flex-end;
+}
+.align-right .navy-dot {
+  margin-left: -12px; /* Pull dot onto bar */
+}
+
+/* Left Aligned Bar (Row 2) */
+.align-left {
+  justify-content: flex-start;
+}
+.align-left .navy-dot {
+  margin-right: -12px; /* Pull dot onto bar */
+}
+
+/* --- The Box Container for Groups --- */
+.group-box-content {
+  display: flex;
+  gap: 30px;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #F59E0B; /* Thin Orange Border */
+  position: relative;
+}
+
+/* Specific borders to create the "Open Top" look */
+.border-right-style {
+  border-top-left-radius: 0;
+  border-top: 1px solid rgba(245, 158, 11, 0.3); /* Faint top line */
+}
+
+.border-left-style {
+  border-top-right-radius: 0;
+  border-top: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* --- Card Styles --- */
+.flow-card {
+  background-color: #F8FAFC; /* Light Gray */
+  padding: 35px 25px;
+  border-radius: 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* Make cards inside group even width */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 260px;
+}
+
+.flow-icon-circle {
+  width: 60px;
+  height: 60px;
+  background: white; /* White background for icon */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: #64748B;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Hover effect on card */
+.flow-card:hover .flow-icon-circle {
+  color: #F59E0B; /* Icon turns orange */
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.flow-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 12px;
+}
+
+.flow-card-desc {
+  font-size: 0.9rem;
+  color: #64748B;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 968px) {
+  .flow-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .col-stack, .col-group {
+    width: 100%;
+  }
+
+  /* On mobile, un-group the boxes so they stack normally */
+  .group-box-content {
+    flex-direction: column;
+    border: none;
+    padding: 0;
+  }
+  
+  .group-bar-wrapper {
+    display: none; /* Hide the complex bar on mobile */
+  }
+
+  .col-stack {
+    order: -1; /* Keep stacks visible */
+  }
+}

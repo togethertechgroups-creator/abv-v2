@@ -1,0 +1,97 @@
+.feature-hero-section {
+  position: relative;
+  height: 60vh;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 107, 0, 0.1);
+}
+
+.heroo-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1200px;
+  /* Flex settings to center the content block on screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers the breadcrumb below the title */
+  gap: 20px;
+}
+
+/* --- TITLE BLOCK STRUCTURE --- */
+/* This wrapper ensures the title and line align with EACH OTHER */
+.title-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* CRITICAL: Aligns Dot/Line to start of text */
+  position: relative;
+}
+
+.herro-title {
+  font-size: 4.5rem; /* Large and bold */
+  color: #001a33; /* Dark Blue/Black text like reference */
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -1.5px;
+}
+
+/* --- THE DOT & LINE STYLE --- */
+.hero-decoration {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Space between text and line */
+  width: 282px; /* Max width of the line effect */
+  height: 20px;
+}
+
+.hero-dot {
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: #ff6b00; /* TogetherTech Orange */
+  border-radius: 50%;
+  flex-shrink: 0; /* Prevents dot from squishing */
+  margin-right: -2px; /* Connects dot to line */
+  z-index: 2;
+}
+
+.hero-line {
+  display: block;
+  height: 4px;
+  background-color: #ff6b00;
+  border-radius: 0 4px 4px 0;
+}
+
+/* --- BREADCRUMB --- */
+/* .breadcrumb {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 500;
+  background: rgba(255, 107, 0, 0.05);
+  display: inline-block;
+  padding: 8px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 107, 0, 0.1);
+  backdrop-filter: blur(5px);
+  margin-top: 10px;
+} */
+
+.separator {
+  margin: 0 10px;
+  color: #bbb;
+}
+
+.active {
+  color: #ff6b00;
+  font-weight: 700;
+}

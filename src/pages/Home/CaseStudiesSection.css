@@ -1,0 +1,199 @@
+.case-studies-section {
+  padding: 100px 20px;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.cs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cs-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.cs-tag {
+  color: var(--accent-orange, #ff6b00);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.cs-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  color: #0F172A;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.cs-subtitle {
+  color: #64748B;
+  font-size: 18px;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.cs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.cs-card {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.cs-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.cs-image-wrapper {
+  flex: 0 0 42%;
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cs-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.8s ease;
+}
+
+.cs-card:hover .cs-image {
+  transform: scale(1.05);
+}
+
+.cs-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, rgba(250, 177, 22, 0.1), transparent);
+  mix-blend-mode: overlay;
+}
+
+.cs-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cs-category {
+  color: var(--accent-orange, #ff6b00);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.cs-project-title {
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.cs-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.cs-detail-item h5 {
+  color: #0F172A;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.cs-detail-item p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.cs-divider {
+  height: 1px;
+  background: rgba(15, 23, 42, 0.1);
+  width: 100%;
+}
+
+.cs-result-box {
+  background: rgba(250, 177, 22, 0.05);
+  border: 1px solid rgba(250, 177, 22, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.cs-result-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #F59E0B;
+}
+
+.cs-result-inner h5 {
+  color: #F59E0B;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 6px;
+  font-weight: 800;
+}
+
+.cs-result-inner p {
+  color: #0F172A;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.cs-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #0F172A;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid #F59E0B;
+}
+
+.cs-cta:hover {
+  color: #F59E0B;
+  gap: 15px;
+}
+
+@media (max-width: 992px) {
+  .cs-card, .cs-card.reverse {
+    flex-direction: column;
+    gap: 40px;
+  }
+}

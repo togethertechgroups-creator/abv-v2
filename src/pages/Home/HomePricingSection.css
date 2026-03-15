@@ -1,0 +1,51 @@
+.home-pricing-section {
+  padding: 100px 20px;
+  background: transparent;
+  position: relative;
+  z-index: 10;
+}
+
+.hp-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hp-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hp-tag {
+  color: #ff6b00;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.hp-title {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.hp-subtitle {
+  color: #94a3b8;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hp-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.hp-plans-wrapper {
+  /* Ensuring the PlansSection from Pricing page looks good here */
+  width: 100%;
+}

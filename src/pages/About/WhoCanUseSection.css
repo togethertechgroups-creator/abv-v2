@@ -1,0 +1,170 @@
+/* Layout & Container */
+.wcu-section {
+  padding: 80px 20px;
+  background-color: #fff; /* Clean white background */
+  overflow: hidden;
+}
+
+.wcu-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wcu-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.wcu-title {
+  font-size: 2.5rem;
+  color: #0F172A;
+  font-weight: 800;
+}
+
+/* Grid System */
+.wcu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-bottom: 80px;
+}
+
+/* Card Styling */
+.wcu-card {
+  background-color: #F8F9FA; /* Light grey card bg */
+  display: flex;
+  align-items: stretch; /* Makes sure image and text are same height */
+  overflow: hidden;
+  border-radius: 4px; /* Subtle global radius, internal radius does the magic */
+  transition: all 0.3s ease;
+  min-height: 250px;
+}
+
+.wcu-text-content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wcu-text-content h3 {
+  font-size: 1.25rem;
+  color: #0F172A;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.wcu-text-content p {
+  font-size: 0.95rem;
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* Image Magic - The "Curve" */
+.wcu-image-wrapper {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.wcu-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Creating the curve shapes */
+/* Standard Alignment (Text Left, Image Right) */
+.wcu-card:not(.reverse) .wcu-image-wrapper {
+  /* This creates the curve inward on the left side of the image */
+  mask-image: radial-gradient(circle at 0% 50%, transparent 0, transparent 0, black 0);
+  /* Fallback or alternative simple curve */
+  /* border-top-left-radius: 150px;  */
+}
+
+/* Reverse Alignment (Image Left, Text Right) */
+.wcu-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.wcu-card.reverse .wcu-image-wrapper {
+  /* border-top-right-radius: 150px; */
+}
+
+/* Bottom Section */
+.wcu-bottom-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wcu-quote-icon {
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.wcu-quote-text {
+  font-size: 1.2rem;
+  color: #0F172A;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 50px;
+}
+
+/* Pills Row */
+.wcu-pills-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.wcu-pill {
+  border: 1px solid #E2E8F0;
+  padding: 12px 24px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.yellow-dot {
+  width: 24px;
+  height: 24px;
+  background-color: #FBBF24; /* Amber/Yellow */
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wcu-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wcu-card {
+    flex-direction: column !important; /* Stack vertically on mobile */
+    text-align: center;
+  }
+
+  .wcu-card .wcu-image-wrapper {
+    height: 200px;
+    border-radius: 0 !important; /* Remove curves on mobile for cleanliness */
+  }
+
+  .wcu-pills-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .wcu-pill {
+    justify-content: flex-start;
+  }
+}

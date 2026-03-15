@@ -1,0 +1,268 @@
+/* --- GRAND THEME (Dark/Tech/Editorial) --- */
+.hiw-section-wrapper {
+  /* --- CHANGED: Reduced from 120px to 60px --- */
+  padding: 60px 0; 
+  background-color: #030712; 
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  /* Optional: Force it to fit screen height if desired */
+  /* min-height: 100vh; display: flex; align-items: center; */
+}
+
+.hiw-main-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* --- HEADER --- */
+.hiw-header-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* --- CHANGED: Reduced margins significantly --- */
+  margin-bottom: 30px; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hiw-grand-title {
+  /* --- CHANGED: Smaller title to save top space (4.5rem -> 3.5rem) --- */
+  font-size: 3.5rem; 
+  line-height: 0.9;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+}
+
+.solid-text {
+  color: white;
+  letter-spacing: -2px;
+}
+
+/* --- LIQUID TABS --- */
+.hiw-liquid-tabs {
+  background: rgba(255,255,255,0.05);
+  padding: 4px; /* Reduced padding */
+  border-radius: 12px;
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.liquid-tab {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 10px 20px; /* Smaller clickable area */
+  color: #94a3b8;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.9rem;
+  z-index: 1;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.liquid-tab.active {
+  color: #030712;
+}
+
+.liquid-bg {
+  position: absolute;
+  inset: 0;
+  background: #F59E0B;
+  border-radius: 8px;
+  z-index: -1;
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+}
+
+/* --- CINEMA STAGE --- */
+.hiw-cinema-stage {
+  position: relative;
+  /* --- CHANGED: Drastically reduced height (650px -> 480px) --- */
+  min-height: 480px; 
+  height: auto;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0B101B;
+}
+
+/* --- SHUTTER --- */
+/* --- SHUTTER (Optimized for Smoothness) --- */
+.hiw-shutter {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #F59E0B;
+  z-index: 50;
+  
+  /* --- FIX 1: Remove 'transform: translateX(-100%)' --- */
+  /* Framer Motion handles the position. Having it in CSS causes the "sticking". */
+  
+  /* --- FIX 2: Force Hardware Acceleration --- */
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0); /* Triggers GPU composition */
+}
+
+/* --- CONTENT LAYOUT --- */
+.hiw-stage-content {
+  display: flex;
+  height: 100%;
+  /* Ensures content stretches to fill the 480px height */
+  min-height: 480px; 
+}
+
+/* LEFT PANEL (TEXT) */
+.hiw-text-panel {
+  width: 50%;
+  /* --- CHANGED: Reduced padding (60px -> 30px) to fit content in smaller box --- */
+  padding: 30px 40px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  background: rgba(11, 16, 27, 0.8);
+}
+
+.panel-title {
+  /* Slightly smaller font */
+  font-size: 1.8rem; 
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.2;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.panel-desc {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  /* --- CHANGED: Reduced bottom margin (40px -> 25px) --- */
+  margin-bottom: 25px; 
+  max-width: 95%;
+}
+
+.panel-steps {
+  display: flex;
+  flex-direction: column;
+  /* --- CHANGED: Tighter gap between steps (25px -> 15px) --- */
+  gap: 15px; 
+}
+
+.step-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.step-number {
+  font-family: monospace;
+  font-size: 1.1rem;
+  color: #F59E0B;
+  font-weight: 700;
+  padding-top: 2px;
+  min-width: 25px;
+}
+
+.step-info h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: white;
+}
+
+.step-info p {
+  font-size: 0.85rem;
+  color: #64748B;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* RIGHT PANEL (IMAGE) */
+.hiw-image-panel {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+  /* Ensure it matches the stage height */
+  height: auto; 
+}
+
+.panel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.panel-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #F59E0B;
+  z-index: 20;
+  backdrop-filter: blur(4px);
+}
+
+/* Tech Overlay */
+.scanline-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0) 0px,
+    rgba(0,0,0,0) 3px,
+    rgba(0,0,0,0.3) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+.corner-bracket {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #F59E0B;
+  z-index: 20;
+}
+
+.top-left { top: 15px; left: 15px; border-right: none; border-bottom: none; }
+.bottom-right { bottom: 15px; right: 15px; border-left: none; border-top: none; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hiw-stage-content { flex-direction: column; }
+  .hiw-text-panel, .hiw-image-panel { width: 100%; }
+  .hiw-image-panel { height: 250px; min-height: 250px; } /* Smaller image on tablet */
+  .hiw-text-panel { 
+    border-right: none; 
+    border-bottom: 1px solid rgba(255,255,255,0.1); 
+    padding: 30px; 
+  }
+  .hiw-grand-title { font-size: 2.8rem; }
+}
+
+@media (max-width: 768px) {
+  .hiw-header-layout { flex-direction: column; align-items: flex-start; gap: 15px;}
+  .hiw-liquid-tabs { width: 100%; overflow-x: auto; padding-bottom: 10px; justify-content: center; }
+  .hiw-grand-title { font-size: 2.2rem; }
+}

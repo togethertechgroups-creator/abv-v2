@@ -1,0 +1,167 @@
+/* src/components/common/Header/Header.css */
+
+.together-tech-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.together-tech-header.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* --- LOGO --- */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo {
+  height: 90px;
+  width: auto;
+  display: block;
+}
+
+.header-logo-text {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+/* --- DESKTOP NAV PILL --- */
+.desktop-nav-pill {
+  display: flex;
+  background: white;
+  padding: 5px;
+  border-radius: 50px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #F1F5F9;
+  position: relative;
+}
+
+.nav-item {
+  position: relative;
+  padding: 10px 24px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #64748B;
+  border-radius: 40px;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  z-index: 1;
+}
+
+.nav-item:hover {
+  color: #0F172A;
+}
+
+.nav-item.active-text {
+  color: white !important;
+}
+
+/* The Sliding Orange Pill */
+.active-pill-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #F59E0B; /* TogetherTech Orange */
+  border-radius: 40px;
+  z-index: -1;
+}
+
+.nav-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* --- ACTIONS --- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.subscription-btn {
+  background-color: #F59E0B;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.subscription-btn:hover {
+  background-color: #D97706;
+  transform: translateY(-2px);
+}
+
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+  color: #0F172A;
+}
+
+/* --- MOBILE NAV --- */
+.mobile-nav-dropdown {
+  background: white;
+  overflow: hidden;
+  border-bottom: 1px solid #E2E8F0;
+  display: none; /* Hidden by default on desktop */
+}
+
+.mobile-link {
+  display: block;
+  padding: 15px 24px;
+  text-decoration: none;
+  color: #334155;
+  font-weight: 600;
+  border-top: 1px solid #F1F5F9;
+}
+
+.mobile-link.active-mobile {
+  background-color: #FFF7ED;
+  color: #F59E0B;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .desktop-nav-pill {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block;
+  }
+
+  .mobile-nav-dropdown {
+    display: block;
+  }
+}
+.header-logo.gif-mode {
+  height: 75px;       /* Make GIF taller */
+  width: auto;        /* Let width adjust automatically */
+  
+  /* Optional: Adjust position if the size change makes it jump */
+  transform: translateX(-20px) !important;
+  transform: translateY(-1px);
+}

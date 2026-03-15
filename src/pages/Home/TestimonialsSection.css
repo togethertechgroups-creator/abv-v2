@@ -1,0 +1,118 @@
+.testimonials-section {
+    padding: 100px 20px;
+    background: #020617;
+    position: relative;
+    overflow: hidden;
+}
+
+.ts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.quote-icon-box {
+    width: 80px;
+    height: 80px;
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    color: #F59E0B;
+}
+
+.ts-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+.ts-slider-wrapper {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.ts-card {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 60px 40px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.ts-stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 30px;
+}
+
+.star-icon {
+    color: #F59E0B;
+    fill: #F59E0B;
+}
+
+.ts-text {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.ts-author {
+    margin-top: 20px;
+}
+
+.ts-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.ts-role {
+    font-size: 0.9rem;
+    color: #F59E0B;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.ts-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ts-nav-btn:hover {
+    background: #F59E0B;
+    border-color: #F59E0B;
+}
+
+.ts-nav-btn.prev { left: -30px; }
+.ts-nav-btn.next { right: -30px; }
+
+@media (max-width: 768px) {
+    .ts-title { font-size: 2rem; }
+    .ts-text { font-size: 1.1rem; }
+    .ts-slider-wrapper { padding: 0; }
+    .ts-nav-btn { display: none; }
+}

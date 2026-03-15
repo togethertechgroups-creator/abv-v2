@@ -1,0 +1,72 @@
+{
+  "version": 8,
+  "name": "Dark Orange Roads",
+  "sources": {
+    "carto": {
+      "type": "vector",
+      "tiles": [
+        "https://basemaps.cartocdn.com/vector/carto.streets/{z}/{x}/{y}.mvt"
+      ],
+      "minzoom": 0,
+      "maxzoom": 20
+    }
+  },
+  "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "paint": { "background-color": "#050505" }
+    },
+
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "carto",
+      "source-layer": "water",
+      "paint": { "fill-color": "#0a0a0a" }
+    },
+
+    {
+      "id": "landuse",
+      "type": "fill",
+      "source": "carto",
+      "source-layer": "landuse",
+      "paint": { "fill-color": "#111111" }
+    },
+
+    {
+      "id": "roads",
+      "type": "line",
+      "source": "carto",
+      "source-layer": "roads",
+      "paint": {
+        "line-color": "#ff6b00",
+        "line-width": 2
+      }
+    },
+
+    {
+      "id": "buildings",
+      "type": "fill",
+      "source": "carto",
+      "source-layer": "buildings",
+      "paint": { "fill-color": "#1a1a1a" }
+    },
+
+    {
+      "id": "labels",
+      "type": "symbol",
+      "source": "carto",
+      "source-layer": "labels",
+      "layout": {
+        "text-field": ["get", "name"],
+        "text-size": 12
+      },
+      "paint": {
+        "text-color": "#ffffff",
+        "text-halo-color": "#000",
+        "text-halo-width": 1.2
+      }
+    }
+  ]
+}

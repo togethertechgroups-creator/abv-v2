@@ -1,0 +1,273 @@
+/* Page Layout */
+.sub-page {
+  background-color: #fff;
+  min-height: 100vh;
+  padding: 100px 20px;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.sub-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- Header Styling --- */
+.sub-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.sub-header h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #0F172A; /* Dark Navy */
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+/* Graphic: Dot and Line */
+.sub-graphic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  margin-top: -10px;
+  position: relative;
+  width: 300px; /* Width of the underline */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sub-dot {
+  width: 28px;
+  height: 28px;
+  background-color: #F59E0B; /* Orange */
+  border-radius: 50%;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+}
+
+.sub-line {
+  height: 5px;
+  background-color: #F59E0B;
+  width: 100%;
+  border-radius: 5px;
+  position: absolute;
+  left: 10px; /* Offset to connect to dot center */
+}
+
+.sub-header h2 {
+  font-size: 2rem;
+  color: #0F172A;
+  font-weight: 800;
+  margin-top: 20px;
+  line-height: 1.3;
+}
+
+/* --- List Row Styling --- */
+.sub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.sub-row {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+  background: #fff; /* Starts white */
+  border-radius: 12px;
+  border-left: 5px solid transparent; /* Hidden border for hover effect */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Very subtle shadow */
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.sub-row:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* Column 1: Title */
+.sub-col-title {
+  flex: 1;
+  min-width: 150px;
+}
+
+.sub-col-title h3 {
+  font-size: 1.8rem;
+  color: #0F172A;
+  font-weight: 800;
+  margin: 0;
+}
+
+/* Column 2: Description & Button */
+.sub-col-desc {
+  flex: 2;
+  padding: 0 20px;
+}
+
+.sub-col-desc p {
+  color: #334155;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.sub-btn {
+  background-color: #F59E0B;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Column 3: Price */
+.sub-col-price {
+  flex: 1;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+}
+
+.price-val {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0F172A;
+}
+
+.price-period {
+  font-size: 1rem;
+  color: #0F172A;
+  font-weight: 800;
+}
+
+.hover-arrow {
+  position: absolute;
+  right: -30px; /* Hangs off the edge */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sub-row {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 30px 20px;
+  }
+  
+  .sub-col-price {
+    align-items: center;
+  }
+  
+  .sub-graphic {
+    width: 200px;
+  }
+
+  .hover-arrow {
+    display: none;
+  }
+}
+/* ... Keep your basic layout styles ... */
+
+.sub-row {
+  /* ... existing styles ... */
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: #fff;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* --- ACTIVE STATE --- */
+.row-active {
+  border-color: #F59E0B !important;
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.2);
+  z-index: 10 !important;
+}
+
+/* 1. Glass Tint: Sits BEHIND text, ON TOP of white bg */
+.active-glass-tint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08) 0%, rgba(217, 119, 6, 0.05) 100%);
+  z-index: 2; /* Low index */
+  pointer-events: none;
+}
+
+/* 2. The Floating Stamp */
+.selected-stamp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #F59E0B;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 20; /* High index */
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+/* 3. The Text Wrapper */
+/* We wrap content to ensure it sits ABOVE the tint */
+.sub-content-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  z-index: 5; /* Above tint */
+}
+
+/* 4. Mini Pop Effect */
+.mini-pop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Button Change on Select */
+.btn-selected {
+  background-color: #334155 !important; /* Dark grey */
+  color: #fff;
+}
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+  .sub-content-wrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .selected-stamp {
+    top: 10px;
+    right: 10px;
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+}

@@ -1,0 +1,140 @@
+/* --- Marquee/Scroll Styling --- */
+.fl-scroll-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* --- INCREASED INTENSITY (MEDIUM) --- */
+  /* 20% fade on left, 20% fade on right */
+  mask-image: linear-gradient(to right, transparent 0%, black 30%, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%, black 80%, transparent 100%);
+}
+
+.marquee-row-outer {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 30px; 
+  width: max-content;
+  
+  /* CRITICAL: Add padding top/bottom so the large glow doesn't get cut off */
+  padding: 40px 0; 
+}
+
+/* --- Card Design --- */
+.fl-card {
+  position: relative;
+  background-color: #FFFCF5; /* Keeps the card face clean/solid */
+  border-radius: 12px;
+  padding: 40px 30px;
+  border-left: 5px solid #F59E0B;
+  
+  width: 350px; 
+  height: 220px; 
+  flex-shrink: 0; 
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  /* Subtle shadow for non-hover state */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  
+  /* Smooth transition for the pop effect */
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
+              box-shadow 0.3s ease, 
+              border-color 0.3s ease;
+}
+
+/* --- HOVER EFFECTS --- */
+
+.fl-card:hover {
+  /* Lift the card up */
+  transform: translateY(-7px) scale(1.02);
+  z-index: 10; /* Bring to front */
+  
+  /* THE HIGH INTENSITY GLOW (LAYERED SHADOWS) */
+  box-shadow: 
+    /* Layer 1: Sharp, bright edge */
+    0 0 15px rgba(245, 158, 11, 0.8),
+    /* Layer 2: Strong glow */
+    0 0 30px rgba(245, 158, 11, 0.6),
+    /* Layer 3: Wide ambient light */
+    0 0 80px rgba(245, 158, 11, 0.4);
+    
+  /* Make the left border glow solid orange */
+  border-color: #F59E0B;
+}
+
+/* --- Text Glow Animations --- */
+
+/* --- Header Styling --- */
+.fl-header {
+  text-align: center;      /* Forces all text inside to center */
+  max-width: 800px;
+  margin: 0 auto 60px;     /* Centers the container itself */
+  padding: 0 24px;
+  
+  /* Flexbox centering to be absolutely sure */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fl-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0F172A;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  
+  /* Force center alignment */
+  text-align: center;
+  width: 100%;
+}
+
+.fl-subtitle {
+  font-size: 1.1rem;
+  color: #64748B;
+  line-height: 1.6;
+  
+  /* Force center alignment */
+  text-align: center;
+  width: 100%;
+  max-width: 600px; /* Optional: Keeps the subtitle from getting too wide to read */
+}
+
+/* Responsive adjustment for the header */
+@media (max-width: 768px) {
+  .fl-title {
+    font-size: 2rem;
+  }
+}
+
+.fl-card:hover .fl-card-title {
+  /* Turn text Orange */
+  color: #d97706; 
+  /* Add glowing blur to text */
+  text-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+}
+
+/* Description Text */
+.fl-card-desc {
+  font-size: 0.95rem;
+  color: #475569; /* Default Gray */
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.fl-card:hover .fl-card-desc {
+  /* Make text slightly darker/sharper */
+  color: #1e293b;
+  /* Subtle glow behind text to make it pop */
+  text-shadow: 0 0 1px rgba(245, 158, 11, 0.3);
+}

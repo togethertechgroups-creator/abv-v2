@@ -1,0 +1,34 @@
+.neon-marker-pulse {
+  width: 20px;
+  height: 20px;
+  background-color: #ff6b00;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 0 15px #ff6b00;
+}
+
+.neon-marker-pulse::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  border: 2px solid #ff6b00;
+  animation: pulseRing 2s infinite;
+}
+
+@keyframes pulseRing {
+  0% { width: 100%; height: 100%; opacity: 1; }
+  100% { width: 300%; height: 300%; opacity: 0; }
+}
+
+/* Fix for CartoDB Popup */
+.maplibregl-popup-content {
+  background: #fff !important;
+  color: #000 !important;
+  border-radius: 8px;
+  padding: 5px 10px;
+}

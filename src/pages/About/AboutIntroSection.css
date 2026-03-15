@@ -1,0 +1,183 @@
+/* src/pages/About/AboutIntroSection.css */
+
+.about-intro-section {
+  padding: 100px 0;
+  background-color: white;
+  overflow: hidden;
+}
+
+.ai-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split 50/50 */
+  gap: 60px;
+  align-items: center;
+}
+
+/* --- Left Column: Typography --- */
+.ai-content-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 2; /* Keep text above everything else */
+}
+
+.ai-tag {
+  color: #F59E0B; /* TogetherTech Orange */
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.ai-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0F172A; /* Dark Navy */
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.ai-description {
+  font-size: 1.05rem;
+  color: #64748B;
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 90%;
+}
+
+.ai-highlight-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #F8FAFC;
+  padding: 15px 25px;
+  border-radius: 8px;
+  border-left: 4px solid #F59E0B;
+  font-weight: 700;
+  color: #0F172A;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.ai-icon {
+  color: #F59E0B;
+}
+
+/* --- Right Column: The 3D Visual Setup --- */
+.ai-visual-col {
+  position: relative;
+  height: 600px; /* Allocated space for the phone */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px; /* Determines the intensity of the 3D effect */
+  cursor: pointer;
+}
+
+.ai-phone-wrapper {
+  position: relative;
+  width: 300px; /* Standard Width */
+  height: 600px; /* Standard Height */
+  transform-style: preserve-3d; /* CRITICAL for 3D depth */
+  transition: transform 0.1s ease-out;
+}
+
+/* LAYER 1: The Phone Frame (Bottom Layer) 
+   We put this at z-index 10 so the screen sits ON TOP of it.
+*/
+.ai-phone-frame-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; 
+  pointer-events: none;
+}
+
+.phone-frame-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the whole phone frame is visible */
+  filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3)); /* Heavy shadow for depth */
+}
+
+/* LAYER 2: The Screen Mask (Top Layer - The Fix) 
+   This creates the "window" for your content.
+   IMPORTANT: Adjust top/bottom/left/right to match your phone bezel.
+*/
+.ai-screen-mask {
+  position: absolute;
+  /* Adjust these values to fit INSIDE your phone bezel */
+       top: 0px;
+    bottom: -28px;   
+  left: 18px;     
+  right: 18px;
+  
+ /* White background behind the guard */
+  border-radius: 35px; /* Adjust curve to match phone corners */
+  overflow: visible; /* Cuts off the guard image if he moves too far */
+  z-index: 20; /* Sits ON TOP of the phone frame */
+}
+
+/* LAYER 3: The Guard Image (Inside the mask) 
+   This moves via Framer Motion
+*/
+/* Find this section and update the .guard-img rule */
+
+/* LAYER 3: The Guard Image Container */
+.ai-guard-layer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: flex-end;   /* Anchors to the bottom */
+  padding-bottom: 10px;    /* Optional: Adds a little space from the bottom edge */
+}
+
+/* THE GUARD IMAGE - COMPACT SIZE UPDATE */
+.guard-img {
+  /* Remove height: 100% and width: 100% */
+  width: auto;  /* Maintain aspect ratio */
+  height: 70%;  /* ADJUST THIS VALUE: Makes him 70% of the screen height. Try 60% or 80% to taste. */
+  object-fit: contain; /* Ensures he isn't cropped */
+  pointer-events: none;
+}
+/* Layer 4: Floor Shadow (Purely decorative) */
+.ai-phone-shadow {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(90deg);
+  width: 220px;
+  height: 40px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, transparent 70%);
+  z-index: 1;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 968px) {
+  .ai-container {
+    grid-template-columns: 1fr; /* Stack vertically on tablet/mobile */
+    text-align: center;
+    gap: 40px;
+  }
+  
+  .ai-content-col {
+    align-items: center; /* Center align text */
+  }
+
+  .ai-visual-col {
+    margin-top: 0;
+    height: 500px;
+  }
+  
+  .ai-phone-wrapper {
+    /* Scale down slightly for smaller screens */
+    transform: scale(0.85); 
+  }
+}

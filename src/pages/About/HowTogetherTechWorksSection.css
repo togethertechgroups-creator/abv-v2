@@ -1,0 +1,78 @@
+/* ... Keep Container, Header, Grid styles ... */
+.hrw-section { padding: 100px 0; background: #fff; overflow: hidden; }
+.hrw-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.hrw-header { text-align: center; margin-bottom: 60px; }
+.hrw-tag { color: #F59E0B; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.hrw-title { font-size: 2.5rem; color: #1e293b; margin: 10px 0; }
+.hrw-subtitle { color: #64748B; font-size: 1.1rem; }
+.hrw-content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+
+/* 3D Stage */
+.hrw-visual-col { display: flex; justify-content: center; align-items: center; }
+.interactive-container { position: relative; width: 100%; display: flex; justify-content: center; }
+
+.holo-card-perspective { perspective: 1200px; width: 100%; max-width: 500px; height: 500px; position: relative; }
+.holo-card-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; }
+.phone-layer { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; display: flex; justify-content: center; align-items: center; }
+.hrw-phone-img { width: auto; height: 90%; object-fit: contain; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.15)); }
+
+/* --- NEW: ON-IMAGE ICONS --- */
+.on-image-icon {
+  position: absolute;
+  width: 60px; 
+  height: 60px;
+  transform: translate(-50%, -50%); /* Centers on the coordinate */
+  z-index: 20;
+  cursor: pointer;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-core {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease;
+}
+
+/* Specific Colors */
+.on-image-icon.green .icon-core { border: 2px solid #10B981; }
+.on-image-icon.orange .icon-core { border: 2px solid #F59E0B; }
+
+/* Pulse Animation */
+.pulse-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: ringRipple 2s infinite;
+}
+
+.on-image-icon.green .pulse-ring { color: #10B981; }
+.on-image-icon.orange .pulse-ring { color: #F59E0B; }
+
+@keyframes ringRipple {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Shadow & Process List (Unchanged) */
+.levitation-shadow { position: absolute; bottom: 10%; left: 20%; width: 60%; height: 40px; background: radial-gradient(rgba(0,0,0,0.2), transparent 70%); border-radius: 50%; filter: blur(8px); z-index: -1; }
+.hrw-process-item { margin-bottom: 30px; position: relative; padding-left: 20px; border-left: 3px solid #e2e8f0; }
+.hrw-process-title { font-size: 1.25rem; font-weight: 700; color: #1e293b; margin-bottom: 8px; }
+.hrw-process-description { color: #64748B; line-height: 1.6; }
+
+@media (max-width: 900px) {
+  .hrw-content-grid { grid-template-columns: 1fr; text-align: center; }
+  .hrw-visual-col { margin-bottom: 50px; }
+  .holo-card-perspective { height: 400px; }
+}

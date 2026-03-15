@@ -1,0 +1,247 @@
+.footer-section {
+  background-color: #0F172A; /* Dark Navy Background */
+  color: white;
+  padding: 60px 0 30px;
+  font-family: 'Inter', sans-serif;
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 25px 24px;
+}
+
+/* --- Top CTA Section --- */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-cta-text {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.footer-cta-btn {
+  background-color: #F59E0B; /* Orange */
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.footer-cta-btn:hover {
+  background-color: #d97706;
+  transform: translateY(-2px);
+}
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.15);
+  margin-bottom: 50px;
+}
+
+/* --- MAIN 2-COLUMN LAYOUT --- */
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr; /* Left is smaller, Right is wider */
+  gap: 60px;
+  align-items: start;
+}
+
+/* --- LEFT COLUMN: Contact --- */
+.footer-left-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.contact-item.align-center {
+  align-items: center;
+}
+
+.icon-circle {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #F59E0B; /* Hollow Orange Circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-icon-svg {
+  color: #F59E0B;
+}
+
+.contact-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: white  ;
+  margin: 0;
+}
+
+.contact-text.single-line {
+  font-weight: 500;
+}
+
+/* Social Icons */
+.social-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 5px;
+  padding-left: 5px;  
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0F172A;
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  background: #F59E0B;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* --- RIGHT COLUMN: Links + Map --- */
+.footer-right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between Links and Map */
+}
+
+/* 1. Links Grid (3x2) */
+.links-grid-system {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Columns exactly */
+  row-gap: 30px;
+  column-gap: 20px;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.link-node-icon {
+  color: #F59E0B;
+  transform: rotate(90deg);
+}
+
+.footer-link:hover {
+  color: #F59E0B;
+}
+
+/* 2. Wide Map */
+.footer-map-wrapper {
+  width: 100%;
+  height: 200px; /* Wider rectangular look */
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  /* border: 4px solid rgba(255,255,255,0.1); Optional border */
+}
+
+.footer-map-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-pin-overlay {
+  position: absolute;
+  top: 60%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.pin-head {
+  width: 40px;
+  height: 40px;
+  background: #DC2626;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+}
+
+/* --- Bottom --- */
+.footer-bottom {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #94A3B8;
+  margin-top: 50px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 968px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr; /* Stack Left and Right columns */
+    gap: 50px;
+  }
+  
+  .footer-right-col {
+    width: 100%;
+  }
+
+  /* On mobile, maybe stack the links to 2 cols instead of 3 if crowded */
+  .links-grid-system {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .links-grid-system {
+    grid-template-columns: 1fr 1fr; /* 2 cols on small mobile */
+  }
+  
+  .footer-cta-text {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  
+  .footer-top {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,472 @@
+.features-overview-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.fo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 40px;
+}
+
+/* --- Tabs --- */
+.fo-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.fo-tabs {
+  display: flex;
+  background: #F59E0B;
+  padding: 5px;
+  border-radius: 50px;
+  gap: 5px;
+}
+
+.fo-tab-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 40px;
+  z-index: 1;
+}
+
+.fo-tab-btn.active { color: white; }
+
+.active-bg {
+  position: absolute;
+  inset: 0;
+  background: #0F172A;
+  border-radius: 40px;
+  z-index: -1;
+}
+
+/* --- Content Text --- */
+.text-wrapper {
+  max-width: 700px;
+  margin: 0 auto 20px; /* Space before the arc starts */
+}
+
+.tab-title {
+  font-size: 2rem;
+  color: #0F172A;
+  margin-bottom: 15px;
+}
+
+.tab-desc {
+  color: #64748B;
+  line-height: 1.6;
+}
+
+/* --- Visual Stack (The Layout Fix) --- */
+.visual-stack {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 1. THE ARC ZONE - Dedicated Space */
+.arc-zone {
+  position: relative;
+  width: 100%;
+  height: 220px; /* Fixed height forces content apart */
+  max-width: 800px;
+  margin: 0 auto;
+  /* border: 1px dashed red; Remove this after testing */
+}
+
+.arc-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.arc-path-bg {
+  fill: none;
+  stroke: #E2E8F0;
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+}
+
+.arc-path-fill {
+  fill: none;
+  stroke: #F59E0B;
+  stroke-width: 3;
+  stroke-dasharray: 6 6;
+}
+
+/* Node Positioning relative to Arc Zone */
+.nodes-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.arc-node {
+  position: absolute;
+  transform: translate(-50%, -50%); /* Centers node on the coordinate */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.node-box {
+  background: white;
+  border: 1px solid #E2E8F0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+}
+
+.node-icon { color: #0F172A; }
+.node-label { font-size: 0.75rem; font-weight: 700; color: #334155; white-space: nowrap; }
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: #F59E0B;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+/* Coordinates matching the SVG Curve (M 50,220 Q 400,-60 750,220) */
+/* These values place the nodes exactly on the line */
+.bottom-left { bottom: 10px; left: 10%; }
+.mid-left    { top: 70px;    left: 28%; }
+.top-center  { top: 10px;    left: 45%; } /* Peak of arc */
+.mid-right   { top: 70px;    right: 28%; }
+.bottom-right{ bottom: 10px; right: 10%; }
+
+
+/* 2. DASHBOARD ZONE - Sits below Arc */
+.dashboard-zone {
+  position: relative;
+  margin-top: -20px; /* Slight overlap to connect lines to bezel visually */
+  z-index: 2;
+}
+
+.dashboard-img-wrapper {
+  background: #0F172A;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.3);
+  display: inline-block;
+  width: 100%;
+}
+
+.dashboard-img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  display: block;
+}
+
+/* Floating Card */
+.float-card {
+  position: absolute;
+  bottom: 30px;
+  right: -40px;
+  background: white;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  border: 1px solid #F1F5F9;
+  text-align: left;
+  min-width: 220px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #0F172A;
+}
+
+.dot.yellow { width: 8px; height: 8px; background: #F59E0B; border-radius: 50%; }
+
+.card-list li {
+  font-size: 0.8rem;
+  color: #64748B;
+  margin-bottom: 6px;
+  padding-left: 10px;
+  border-left: 3px solid #E2E8F0;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .arc-zone { display: none; /* Hide complex arc on mobile */ }
+  .fo-tabs { flex-wrap: wrap; justify-content: center; }
+  .float-card {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin: 20px auto;
+    width: 100%;
+  }
+}
+/* ... Keep existing CSS ... */
+
+/* --- LOCK OVERLAY STYLES --- */
+.dashboard-zone {
+  position: relative;
+  margin-top: -20px;
+  z-index: 2;
+  /* CRITICAL for 3D Unfold Effect */
+  perspective: 1500px; 
+}
+
+.lock-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20; /* Above dashboard */
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 20px;
+  gap: 15px;
+}
+
+.lock-icon-circle {
+  width: 80px;
+  height: 80px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  color: #64748B;
+}
+
+.lock-text {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0F172A;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* --- DASHBOARD WRAPPER --- */
+.dashboard-img-wrapper {
+  background: #0F172A;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.3);
+  display: inline-block;
+  width: 70%;
+  
+  /* Ensure 3D transforms look clean */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* ... Keep rest of CSS ... */
+.cyber-grid-container {
+  position: relative;
+  width: 100%;
+  min-height: 90vh; /* Ensures full height impact */
+  background-color: #020617;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Moving Grid Floor - Unchanged */
+.grid-floor {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  bottom: -50%;
+  left: -50%;
+  background-image: 
+    linear-gradient(rgba(14, 165, 233, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.1) 1px, transparent 1px);
+  background-size: 60px 60px;
+  transform: perspective(500px) rotateX(60deg);
+  animation: gridMove 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes gridMove {
+  0% { transform: perspective(500px) rotateX(60deg) translateY(0); }
+  100% { transform: perspective(500px) rotateX(60deg) translateY(60px); }
+}
+
+.ambient-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.15) 0%, rgba(2, 6, 23, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* --- TABS CONTAINER --- */
+.fo-tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.fo-tabs {
+  display: flex;
+  background: #F59E0B; /* Light grey track */
+  padding: 0px;
+  border-radius: 50px;
+  gap: 0px; /* Gap handled by padding */
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --- THE BUTTON --- */
+.fo-tab-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border: none;
+  background: transparent;
+  color: white; /* Inactive Text Color (Slate) */
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  border-radius: 40px;
+  transition: color 0.2s ease;
+  overflow: hidden; /* Contains the sliding background */
+  z-index: 1;
+}
+
+/* HOVER STATE (Only when not active) */
+.fo-tab-btn:not(.active):hover {
+  color: #0f172a;
+  background: rgba(0,0,0,0.03);
+}
+
+/* ACTIVE STATE TEXT */
+.fo-tab-btn.active {
+  color: white; /* Text turns white on orange background */
+}
+
+/* --- THE SLIDING BACKGROUND (The Indicator) --- */
+.activee-bg {
+  position: absolute;
+  inset: 0;
+  background:#1E293B; /* TogetherTech Orange */
+  border-radius: 40px;
+  z-index: -1; /* Sits BEHIND the text */
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3); /* TogetherTech Glow */
+}
+
+/* --- CONTENT LAYER --- */
+/* This ensures icon and text stay on top of the orange pill */
+.tab-content-layer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  position: relative;
+}
+.qr-card {
+  width: 190px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #ffffffdd;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.qr-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.qr-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 8px;
+  object-fit: contain;
+  border: 2px solid #e5e7eb;
+  padding: 6px;
+  background: white;
+}
+
+/* Scan animation */
+.qr-image-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: rgba(245, 158, 11, 0.6);
+  animation: scanMove 2s linear infinite;
+}
+
+@keyframes scanMove {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scan-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.features-overview-section {
+  position: relative; /* CRITICAL for canvas positioning */
+  padding: 80px 0;
+  background-color: #f8fafc; /* Keeps a clean base color */
+  overflow: hidden;
+}
+
+.fo-container {
+  position: relative;
+  z-index: 2; /* CRITICAL: Puts content ABOVE the canvas */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Rest of your existing CSS remains the same... */
