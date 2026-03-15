@@ -26,7 +26,7 @@ const AnimatedRoutes = () => {
   return (
     // mode="wait" ensures the old page fades out BEFORE the new one fades in
     <Suspense fallback={<div style={{display:'flex',justifyContent:'center',padding:'3rem',fontWeight:'bold'}}>Loading...</div>}>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
         <Routes location={location} key={location.pathname}>
           
           {/* Wrap EVERY page in PageWrapper to get the slide/fade effect */}

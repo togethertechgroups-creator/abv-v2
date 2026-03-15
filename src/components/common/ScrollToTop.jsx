@@ -8,10 +8,11 @@ const ScrollToTop = () => {
     if (hash) {
       const element = document.getElementById(hash.substring(1));
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+        // Slight delay to allow Framer Motion's new page to render
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
       }
-    } else {
-      window.scrollTo(0, 0);
     }
   }, [pathname, hash]);
 
