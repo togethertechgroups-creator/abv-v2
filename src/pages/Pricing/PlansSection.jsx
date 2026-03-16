@@ -39,52 +39,28 @@ const PlansSection = () => {
         return (
           <motion.div 
             key={i}
-            // LOGIC: Toggle the 'highlight-card' class based on state, NOT hardcoded data
             className={`plan-card ${isActive ? 'highlight-card' : ''}`}
-            
-            // ANIMATION 1: Layout prop makes the cards resize smoothly around each other
             layout 
-            
-            // ANIMATION 2: Active card gets bigger and sits on top
-            animate={{ 
-              scale: isActive ? 1.05 : 1,
-              zIndex: isActive ? 10 : 1,
-              borderColor: isActive ? '#FDBA74' : '#E2E8F0'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ 
+              duration: 0.5, 
+              delay: i * 0.1,
+              layout: { duration: 0.4, type: "spring", stiffness: 100 }
             }}
-            
-            // Click Handler
+            whileHover={{ y: -10 }}
             onClick={() => setActiveIndex(i)}
-            
-            // Hover effect (subtle lift)
-            whileHover={{ y: -5, cursor: 'pointer' }}
-            transition={{ duration: 0.4, type: "spring", stiffness: 100 }}
           >
-            {/* Floating Badge for Active Card */}
+            {/* Recommendation Badge */}
             <AnimatePresence>
               {isActive && (
                 <motion.div 
                   className="active-badge"
-                  initial={{ opacity: 0, y: -20 }}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0 }}
-                  style={{
-                    position: 'absolute',
-                    top: '5px',
-                    left: '0', 
-                    right: '0',
-                    margin: 'auto',
-                    width: 'fit-content',
-                    background: '#F59E0B',
-                    color: '#fff',
-                    padding: '4px 12px',
-                    borderRadius: '20px',
-                    fontSize: '0.8rem',
-                    fontWeight: 'bold',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '5px',
-                    boxShadow: '0 4px 10px rgba(245, 158, 11, 0.3)'
-                  }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 >
                   <Sparkles size={14} /> Recommended
                 </motion.div>
@@ -92,31 +68,19 @@ const PlansSection = () => {
             </AnimatePresence>
 
             <div className="plan-header">
-              <motion.h3 layout>{plan.name}</motion.h3>
-              <motion.p layout className="plan-desc">{plan.desc}</motion.p>
+              <h3 className="plan-name">{plan.name}</h3>
+              <p className="plan-desc">{plan.desc}</p>
               
-              <div className="price-area">
-                {plan.custom ? (
-                  <h2 className="price-text">Custom Pricing</h2>
-                ) : (
-                  <div className="price-wrapper">
-                    <span className="currency" style={{ fontSize: '1.5rem', color: '#F59E0B' }}>$</span>
-                    <motion.h2 
-                      className="price-text"
-                      style={{ fontSize: '3.5rem', fontWeight: '900', color: '#0F172A' }}
-                    >
-                      {plan.price}
-                    </motion.h2>
-                  </div>
-                )}
+              <div className="price-container">
+                <span className="currency">$</span>
+                <h2 className="price-value">{plan.price}</h2>
               </div>
 
-              {/* Button changes color dynamically */}
-              <Link to="/contact" state={{ plan: plan.name }}>
+              <Link to="/contact" state={{ plan: plan.name }} className="plan-link">
                 <motion.button 
-                  className={`plan-btn ${isActive ? 'btn-dark' : 'btn-orange'}`}
-                  whileTap={{ scale: 0.95 }}
-                  layout
+                  className={`plan-cta-btn ${isActive ? 'btn-active' : 'btn-normal'}`}
+                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.02 }}
                 >
                   {plan.btnText}
                 </motion.button>
@@ -125,17 +89,14 @@ const PlansSection = () => {
 
             <div className="plan-divider"></div>
 
-            <ul className="plan-features">
+            <ul className="plan-features-list">
               {plan.features.map((feature, idx) => (
-                <motion.li 
-                  key={idx}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.1 * idx }}
-                >
-                  <Check size={18} className="check-icon" />
-                  {feature}
-                </motion.li>
+                <li key={idx}>
+                  <div className="check-icon-wrapper">
+                    <Check size={14} />
+                  </div>
+                  <span>{feature}</span>
+                </li>
               ))}
             </ul>
           </motion.div>

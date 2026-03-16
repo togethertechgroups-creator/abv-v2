@@ -3,7 +3,6 @@ import HowItWorksSection from './HowItWorksSection';
 import HomeAboutSection from './HomeAboutSection';
 import CaseStudiesSection from './CaseStudiesSection';
 import WhyChooseUsSection from './WhyChooseUsSection';
-import HomePricingSection from './HomePricingSection';
 import FaqSection from './FaqSection';
 import TestimonialsSection from './TestimonialsSection';
 
@@ -15,7 +14,6 @@ function Home() {
       <HowItWorksSection />
       <CaseStudiesSection />
       <WhyChooseUsSection />
-      <HomePricingSection />
       <FaqSection />
       <TestimonialsSection />
     </div>

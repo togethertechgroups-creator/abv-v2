@@ -1,8 +1,9 @@
 .home-pricing-section {
   padding: 100px 20px;
-  background: transparent;
+  background: #ffffff; /* Light background as per the 2nd image */
   position: relative;
   z-index: 10;
+  border-top: 1px solid #e2e8f0;
 }
 
 .hp-container {
@@ -12,31 +13,33 @@
 
 .hp-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .hp-tag {
-  color: #ff6b00;
+  color: #f59e0b;
   font-size: 14px;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
   display: block;
 }
 
 .hp-title {
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 20px;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 950;
+  color: #0f172a;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
 }
 
 .hp-subtitle {
-  color: #94a3b8;
-  font-size: 18px;
-  max-width: 600px;
+  color: #64748b;
+  font-size: clamp(16px, 2vw, 20px);
+  max-width: 650px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
 .hp-toggle-wrapper {
